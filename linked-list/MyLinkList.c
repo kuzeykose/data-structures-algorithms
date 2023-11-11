@@ -128,12 +128,12 @@ void removeIndex(LINKED_LIST list, int index) {
 bool contains(LINKED_LIST list, void *data) {
     if(list == NULL) {
         printf("ERROR: init list!!\n");
-        return;
+        return false;
     } 
     
     if(list->head == NULL) {
         printf("ERROR: list is empty!!\n");
-        return;
+        return false;
     }
     
     NODE current = list->head;
@@ -159,12 +159,11 @@ void print_list(LINKED_LIST list) {
     
     NODE current = list->head;
     while(current != NULL) {
-        printf("%d",current->data);
+        printf("%d", *((int *)(current->data)));
         if(current->next != NULL)
             printf("->");
         current = current->next;
     }
-    return false;
 }
 int main()
 {
