@@ -9,6 +9,29 @@ typedef struct ArrayList {
     int max_size;
 } LIST_t,*LIST;
 
+/*
+   Development Notes for people who are not familiar with C Language
+   - The Malloc function is used to allocate memory for new list initialization. Java, Python, JS languages, etc. make this automatically, so you don't have to allocate in these languages.
+   - You have to cascade after every memory allocation and reallocation step.
+   - sizeof function helps find the size of the variable to allocate with the correct size.
+   - Cascading in print has caught your attention. The reason is that we store data with (void *) data type. This situation allows us to store the data as a generic type. 
+   Actually, we only store the address of this variable. If you want to print this void * type address of data, you have to cascade the correct type. This cascading gives you access to data of address. 
+   To make this process you should use * character. you can get more information in this link = https://www.w3schools.com/c/c_pointers.php
+   - The last things about C are memmove and free functions. There is no garbage collection in c, so you have to free memory using the free function on your own. Memmove function takes three parameters:
+      -> first parameter is destination memory address,
+      -> second parameter is source memory address that you want to move memory blocks,
+      -> last parameter is size. It determines how many bytes to move forward from the source address.
+
+      Example usage => MA is the short name of memory address you allocate it and [] is the memory block if there is no inside it, that means no allocated block. 
+          memory allocation is like [MA][MA][MA][MA][MA]
+                                     0   1   2   3   4
+          when you call memmove like memmove(2, 1, 3), it will move 4 memory blocks after the source(source also included) to destination memory(2. indexed block) . The last version of the memory block is: 
+                                    [MA] []  [MA][MA][MA][MA]
+                                     0   1   2   3   4
+          NOTE!!: after movement, the empty blocks are actually allocated to you. so you can write and read them easily.
+       MORE INFO ABOUT MEMMOVE: https://cplusplus.com/reference/cstring/memmove/
+*/
+
 LIST init_list(int max_size) {
     LIST array = (LIST) malloc(sizeof(LIST_t));
     if(array == NULL) {
