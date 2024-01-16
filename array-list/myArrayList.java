@@ -33,6 +33,35 @@ public class MyArrayList<E> {
   private void expand() {
     arr = Arrays.copyOf(arr, arr.length * 2);
   }
+  
+  private int indexOf(E elm){
+    for(int i = 0; i < size; i++){
+      if(elm.equals(arr[i])){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  private E remove(E elm){
+    
+  int len = arr.indexOf(elm);
+  if(len == -1){
+  return;
+  } else{
+    int[] myArr = arr;
+    int[] newArr = new int[size-1];
+    for(int i = 0; i < len; i++){
+      newArr[i] = arr[i];
+    }
+    for(int i = len; i < size-1; i++){
+      newArr[i] = arr[i+1];
+        }
+    arr = newArr;
+    size--;
+      }  
+    return elm;
+    }
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
