@@ -46,7 +46,7 @@ public class MyArrayList<E> {
   private E remove(E elm){
     
   int elmPosition = arr.indexOf(elm);
-  if(len == -1){
+  if(elmPosition == -1){
   throw new NoSuchElementException;
   }
     int[] newArr = new int[size-1];
