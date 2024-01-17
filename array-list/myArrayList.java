@@ -43,13 +43,12 @@ public class MyArrayList<E> {
     return -1;
   }
 
-  private E remove(E elm){
-    
-  int elmPosition = arr.indexOf(elm);
-  if(elmPosition == -1){
-  throw new NoSuchElementException;
-  }
-    int[] newArr = new int[size-1];
+  private E remove(E elm) {  
+   int elmPosition = arr.indexOf(elm);
+    if(elmPosition == -1){
+      throw new NoSuchElementException;
+  }  
+   int[] newArr = new int[size-1];
     for(int i = 0; i < elmPosition; i++){
       newArr[i] = arr[i];
     }
@@ -57,8 +56,8 @@ public class MyArrayList<E> {
       newArr[i] = arr[i+1];
         }
     arr = newArr;
-    size--;
-    return elm;
+      size--;
+        return elm;
     }
 
   public String toString() {
