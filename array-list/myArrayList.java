@@ -45,21 +45,19 @@ public class MyArrayList<E> {
 
   private E remove(E elm){
     
-  int len = arr.indexOf(elm);
+  int elmPosition = arr.indexOf(elm);
   if(len == -1){
-  return;
-  } else{
-    int[] myArr = arr;
+  throw new NoSuchElementException;
+  }
     int[] newArr = new int[size-1];
-    for(int i = 0; i < len; i++){
+    for(int i = 0; i < elmPosition; i++){
       newArr[i] = arr[i];
     }
-    for(int i = len; i < size-1; i++){
+    for(int i = elmPosition; i < newArr.length; i++){
       newArr[i] = arr[i+1];
         }
     arr = newArr;
     size--;
-      }  
     return elm;
     }
 
