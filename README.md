@@ -8,8 +8,8 @@ Algorithms start with divide and conquer and continue with sorting, matching, gr
 
 ### Data Structures
 - [ ] Elementary Data Structures
-    - [ ] Array list
-    - [ ] Linked lists
+    - [x] Array list
+    - [x] Linked lists
     - [ ] Stack & Queues
     - [ ] Implementing pointers and objects
     - [ ] Representing rooted trees
